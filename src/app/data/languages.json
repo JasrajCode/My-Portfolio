@@ -1,0 +1,51 @@
+[
+    {
+        "title": "JavaScript",
+        "imgTitle": "javascript"
+    },
+    {
+        "title": "Java",
+        "imgTitle": "java"
+    },
+    {
+        "title": "Python",
+        "imgTitle": "python"
+    },
+    {
+        "title": "React",
+        "imgTitle": "react"
+    },
+    {
+        "title": "NextJS",
+        "imgTitle": "nextjs"
+    },
+    {
+        "title": "MongoDB",
+        "imgTitle": "mongodb"
+    },
+    {
+        "title": "HTML",
+        "imgTitle": "html5"
+    },
+    {
+        "title": "CSS",
+        "imgTitle": "css3"
+    },
+    {
+        "title": "MySQL",
+        "imgTitle": "mysql"
+    },
+    
+    {
+        "title": "PHP",
+        "imgTitle": "php"
+    },
+    {
+        "title": "Tailwind CSS",
+        "imgTitle": "tailwindcss"
+    },
+    {
+        "title": "Git",
+        "imgTitle": "git"
+    }
+]
