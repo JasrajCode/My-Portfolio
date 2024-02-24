@@ -11,8 +11,8 @@ const projectsData = [
     description: "Website created with NextJS showcasing my portfolio",
     image: "/images/projects/1.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/JasrajCode/Portfolio-Website",
-    previewUrl: "https://portfolio-website-vert-beta.vercel.app/",
+    gitUrl: "https://github.com/JasrajCode/My-Portfolio",
+    previewUrl: "https://my-portfolio-tan-one-83.vercel.app/",
   },
   {
     id: 2,
@@ -20,8 +20,8 @@ const projectsData = [
     description: "Supports CRUD operations with notes using NextJS and MongoDB",
     image: "/images/projects/2.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/JasrajCode/Note",
-    previewUrl: "https://notes-pp0sqrjr2-jasrajs-projects.vercel.app/",
+    gitUrl: "https://github.com/JasrajCode/Notes-App",
+    previewUrl: "https://notes-app-rho-rose.vercel.app/",
   },
   {
     id: 3,
