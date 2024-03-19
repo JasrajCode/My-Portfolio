@@ -18,17 +18,17 @@ const HeroSection = () => {
             Full Stack Developer
           </p>
 
-          {/* <div className="align">
+          <div className="align">
             <Link href="#contact">
-              <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-transparent hover:bg-slate-800 text-white border border-white m-2">
+              <button className="px-6 py-3 w-1/2 sm:w-fit rounded-full bg-transparent hover:bg-slate-800 text-white border border-white m-2">
                 Contact
               </button>
             </Link>
 
-            <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-transparent hover:bg-slate-800 text-white border border-white m-2">
+            {/* <button className="px-6 py-3 w-full sm:w-fit rounded-full bg-transparent hover:bg-slate-800 text-white border border-white m-2">
               Download CV
-            </button>
-          </div> */}
+            </button> */}
+          </div>
         </div>
       </div>
     </section>
