@@ -1,6 +1,12 @@
 import Link from "next/link";
+import React from "react";
 
-const NavLink = ({ href, title }) => {
+interface NavLinkProps {
+  href: string;
+  title: string;
+}
+
+function NavLink({ href, title }: NavLinkProps) {
   return (
     <Link
       href={href}
@@ -9,6 +15,6 @@ const NavLink = ({ href, title }) => {
       {title}
     </Link>
   );
-};
+}
 
 export default NavLink;

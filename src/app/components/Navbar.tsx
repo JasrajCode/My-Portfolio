@@ -1,10 +1,16 @@
 "use client";
+
 import React, { useState, useEffect } from "react";
 import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 
-const navLinks = [
+interface NavLinkItem {
+  title: string;
+  path: string;
+}
+
+const navLinks: NavLinkItem[] = [
   {
     title: "Technologies",
     path: "#technologies",
@@ -19,9 +25,9 @@ const navLinks = [
   },
 ];
 
-const Navbar = () => {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState();
+function Navbar() {
+  const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     const handleResize = () => {
@@ -31,6 +37,9 @@ const Navbar = () => {
     // Attach the event listener
     window.addEventListener("resize", handleResize);
 
+    // Call handleResize initially to set the width
+    handleResize();
+
     // Clean up the event listener when the component unmounts
     return () => {
       window.removeEventListener("resize", handleResize);
@@ -39,14 +48,14 @@ const Navbar = () => {
 
   // Close the navbar when the screen width is 768px or larger
   useEffect(() => {
-    if (windowWidth >= 768) {
+    if (windowWidth && windowWidth >= 768) {
       setNavbarOpen(false);
     }
   }, [windowWidth]);
 
   return (
     <nav className="flex flex-col fixed border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212]">
-      <div className="flex container lg:py-4 flex-wrap justify-end items-center  mx-auto px-4 py-2">
+      <div className="flex container lg:py-4 flex-wrap justify-end items-center mx-auto px-4 py-2">
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
             <button
@@ -74,7 +83,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+      {navbarOpen && <MenuOverlay links={navLinks} />}
     </nav>
   );
 };

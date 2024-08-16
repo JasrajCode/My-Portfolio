@@ -1,54 +1,63 @@
 "use client";
-import React, { useState } from "react";
-import Link from "next/link";
 
-import GithubIcon from "../../../public/github-icon.svg";
-import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import React, { useState, FormEvent } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import GithubIcon from "@/public/github-icon.svg";
+import LinkedinIcon from "@/public/linkedin-icon.svg";
 
-const EmailSection = () => {
-  const [emailSubmitted, setEmailSubmitted] = useState(false);
+interface FormData {
+  email: string;
+  subject: string;
+  message: string;
+}
 
-  const handleSubmit = async (e) => {
+const EmailSection: React.FC = () => {
+  const [emailSubmitted, setEmailSubmitted] = useState<boolean>(false);
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = {
-      email: e.target.email.value,
-      subject: e.target.subject.value,
-      message: e.target.message.value,
+
+    const formData = new FormData(e.currentTarget);
+    const data: FormData = {
+      email: formData.get("email") as string,
+      subject: formData.get("subject") as string,
+      message: formData.get("message") as string,
     };
+
     const JSONdata = JSON.stringify(data);
     const endpoint = "/api/send";
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
+    const options: RequestInit = {
       method: "POST",
-      // Tell the server we're sending JSON.
       headers: {
         "Content-Type": "application/json",
       },
-      // Body of the request is the JSON data we created above.
       body: JSONdata,
     };
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
+    try {
+      const response = await fetch(endpoint, options);
+      const resData = await response.json();
 
-    if (response.status === 200) {
-      console.log("Message sent.");
-      setEmailSubmitted(true);
+      if (response.ok) {
+        console.log("Message sent.");
+        setEmailSubmitted(true);
+      }
+    } catch (error) {
+      console.error("Failed to send message:", error);
     }
   };
 
   return (
     <section
       id="contact"
-      className=" grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative "
+      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
     >
       {/* Circle */}
-      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900 to-transparent  rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
-      
-      <div className=" z-55">
+      <div className="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-900 to-transparent rounded-full h-80 w-80 z-0 blur-lg absolute top-3/4 -left-4 transform -translate-x-1/2 -translate-1/2"></div>
+
+      <div className="z-55">
         <h5 className="text-7xl lg:text-9xl md:text-7xl sm:text-6xl font-bold text-white my-2">
           Contact
         </h5>
@@ -60,16 +69,16 @@ const EmailSection = () => {
         </p>
 
         <div className="socials flex flex-row gap-2">
-          {/* <Link href="github.com">
+          <Link href="https://github.com/JasrajCode?tab=repositories" target="_blank">
             <Image src={GithubIcon} alt="Github Icon" />
-          </Link> */}
+          </Link>
 
           <Link href="https://www.linkedin.com/in/jasraj-gosal-635393243/" target="_blank">
             <Image src={LinkedinIcon} alt="Linkedin Icon" />
           </Link>
         </div>
       </div>
-      
+
       <div>
         {emailSubmitted ? (
           <p className="text-green-500 text-sm mt-2">
@@ -94,7 +103,7 @@ const EmailSection = () => {
                 placeholder=""
               />
             </div>
-            
+
             <div className="mb-6">
               <label
                 htmlFor="subject"
@@ -112,7 +121,7 @@ const EmailSection = () => {
                 placeholder=""
               />
             </div>
-            
+
             <div className="mb-6">
               <label
                 htmlFor="message"

@@ -1,10 +1,20 @@
 "use client";
-import React, { useState, useRef } from "react";
-import ProjectCard from "./ProjectCard";
-import ProjectTag from "./ProjectTag";
-import { motion, useInView } from "framer-motion";
 
-const projectsData = [
+import React, { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import ProjectCard from "./ProjectCard";
+
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  tag: string[];
+  gitUrl: string;
+  previewUrl: string;
+}
+
+const projectsData: Project[] = [
   {
     id: 1,
     title: "Chat Website",
@@ -43,12 +53,12 @@ const projectsData = [
   },
 ];
 
-const ProjectsSection = () => {
-  const [tag, setTag] = useState("All");
-  const ref = useRef(null);
+function ProjectsSection() {
+  const [tag, setTag] = useState<string>("All");
+  const ref = useRef<HTMLUListElement>(null);
   const isInView = useInView(ref, { once: true });
 
-  const handleTagChange = (newTag) => {
+  const handleTagChange = (newTag: string) => {
     setTag(newTag);
   };
 

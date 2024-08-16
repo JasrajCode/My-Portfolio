@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-const HeroSection = () => {
+function HeroSection() {
   return (
     <section className="p-12">
       <div className=" w-full flex justify-center items-center text-center">
