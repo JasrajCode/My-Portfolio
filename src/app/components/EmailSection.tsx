@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState, FormEvent } from "react";
+import LinkedinIcon from "@/public/linkedin-icon.svg";
+import GithubIcon from "@/public/github-icon.svg";
+import { useState, FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import GithubIcon from "@/public/github-icon.svg";
-import LinkedinIcon from "@/public/linkedin-icon.svg";
 
 interface FormData {
   email: string;
@@ -62,7 +62,7 @@ const EmailSection: React.FC = () => {
           Contact
         </h5>
 
-        <p className="text-[#ADB7BE] mb-4 max-w-md">
+        <p className="text-slate-300 mb-4 max-w-md">
           I&apos;m open to exploring new opportunities. Whether you have a question
           or just want to say hello, feel free to reach out. I&apos;ll do my best to
           respond as soon as possible!
@@ -99,7 +99,7 @@ const EmailSection: React.FC = () => {
                 type="email"
                 id="email"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-zinc-900 border border-zinc-700 placeholder-neutral-400 text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder=""
               />
             </div>
@@ -117,7 +117,7 @@ const EmailSection: React.FC = () => {
                 type="text"
                 id="subject"
                 required
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-zinc-900 border border-zinc-700 placeholder-neutral-400 text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder=""
               />
             </div>
@@ -133,7 +133,7 @@ const EmailSection: React.FC = () => {
               <textarea
                 name="message"
                 id="message"
-                className="bg-[#18191E] border border-[#33353F] placeholder-[#9CA2A9] text-gray-100 text-sm rounded-lg block w-full p-2.5"
+                className="bg-zinc-900 border border-zinc-700 placeholder-neutral-400 text-gray-100 text-sm rounded-lg block w-full p-2.5"
                 placeholder=""
               />
             </div>

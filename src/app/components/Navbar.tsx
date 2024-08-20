@@ -1,9 +1,10 @@
 "use client";
 
+import { FaBars, FaXmark, FaHouse } from "react-icons/fa6";
 import React, { useState, useEffect } from "react";
-import NavLink from "./NavLink";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
+import NavLink from "./NavLink";
+import Link from "next/link";
 
 interface NavLinkItem {
   title: string;
@@ -54,26 +55,34 @@ function Navbar() {
   }, [windowWidth]);
 
   return (
-    <nav className="flex flex-col fixed border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212]">
-      <div className="flex container lg:py-4 flex-wrap justify-end items-center mx-auto px-4 py-2">
+    <nav className="flex flex-col fixed border border-zinc-700 top-0 left-0 right-0 z-10 bg-neutral-900">
+      <div className="flex container lg:py-4 flex-wrap justify-between items-center mx-auto px-4 py-2">
+        {/* Home Button */}
+        <Link href="/">
+          <FaHouse className="h-7 w-7 text-neutral-300 hover:text-white" />
+        </Link>
+
+        {/* Mobile Menu Button */}
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+              className="flex items-center px-3 py-2 border-2 rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
             >
-              <Bars3Icon className="h-5 w-5" />
+              <FaBars className="h-5 w-5" />
             </button>
           ) : (
             <button
               onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+              className="flex items-center px-3 py-2 border-2 rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
             >
-              <XMarkIcon className="h-5 w-5" />
+              <FaXmark className="h-5 w-5" />
             </button>
           )}
         </div>
-        <div className="menu hidden md:block md:w-auto" id="navbar">
+
+        {/* Desktop Menu */}
+        <div className="hidden md:block md:w-auto" id="navbar">
           <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
             {navLinks.map((link, index) => (
               <li key={index}>
@@ -83,9 +92,11 @@ function Navbar() {
           </ul>
         </div>
       </div>
+
+      {/* Mobile Overlay Menu */}
       {navbarOpen && <MenuOverlay links={navLinks} />}
     </nav>
   );
-};
+}
 
 export default Navbar;

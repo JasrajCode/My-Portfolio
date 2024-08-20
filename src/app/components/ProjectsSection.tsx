@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 
 interface Project {
@@ -44,8 +44,17 @@ const projectsData: Project[] = [
   },
   {
     id: 4,
-    title: "Notes Website",
+    title: "Notes Website (NoSQL)",
     description: "Supports CRUD operations with notes using NextJS and MongoDB",
+    image: "/images/projects/notesWebsite.png",
+    tag: ["All", "Web"],
+    gitUrl: "https://github.com/JasrajCode/Notes-App",
+    previewUrl: "https://notes-app-rho-rose.vercel.app/",
+  },
+  {
+    id: 5,
+    title: "Notes Website (SQL)",
+    description: "Supports CRUD operations with notes using NextJS and PostgreSQL",
     image: "/images/projects/notesWebsite.png",
     tag: ["All", "Web"],
     gitUrl: "https://github.com/JasrajCode/Notes-App",

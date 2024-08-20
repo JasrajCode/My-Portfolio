@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@heroicons/react": "^2.0.18",
+    "@supabase/supabase-js": "^2.45.1",
     "autoprefixer": "10.4.15",
+    "bufferutil": "^4.0.8",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.15",
     "framer-motion": "^10.16.1",
@@ -20,7 +21,9 @@
     "react-dom": "18.2.0",
     "react-icons": "^5.0.1",
     "resend": "^1.0.0",
-    "tailwindcss": "3.3.3"
+    "tailwindcss": "3.3.3",
+    "utf-8-validate": "^6.0.4",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@types/node": "22.3.0",
