@@ -57,8 +57,8 @@ const projectsData: Project[] = [
     description: "Supports CRUD operations with notes using NextJS and PostgreSQL",
     image: "/images/projects/notesWebsite.png",
     tag: ["All", "Web"],
-    gitUrl: "https://github.com/JasrajCode/Notes-App",
-    previewUrl: "https://notes-app-rho-rose.vercel.app/",
+    gitUrl: "https://github.com/JasrajCode/notes-app-sql",
+    previewUrl: "https://notes-app-sql-henna.vercel.app/",
   },
 ];
 
